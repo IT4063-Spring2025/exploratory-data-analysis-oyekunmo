@@ -35,7 +35,7 @@ IT4063C Data Technologies Analytics by [Yahya Gilany](https://yahyagilany.io). i
 
 # I need the instructor to help me with: (repeat as needed)
 
-. N/A (did not receive the instructors help for this assignment)
+- . N/A (did not receive the instructors help for this assignment)
 
 How long did it take you to complete this assignment? and reflect on that [12] hours.
 
