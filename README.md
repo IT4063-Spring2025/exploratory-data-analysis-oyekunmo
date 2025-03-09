@@ -37,7 +37,8 @@ IT4063C Data Technologies Analytics by [Yahya Gilany](https://yahyagilany.io). i
 
 - . N/A (did not receive the instructors help for this assignment)
 
-How long did it take you to complete this assignment? and reflect on that [12] hours.
+# How long did it take you to complete this assignment? and reflect on that [6] hours.
+- . I think that it took me 6 hours to finish this mainly because of the recurring procedural mistake I made with the variables. It affected all the data that I tried to use after it, so I had to redo certain parts of the assignment.
 
 How often did you have to check the solution to the problem? How do you feel about that? I wouldn't often check the solutions to the problems but I used the resources from this week's module to help guide me. I feel like it gave me proper guidance whenever I got stuck.
 
