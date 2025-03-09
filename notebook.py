@@ -20,7 +20,7 @@
 # #### Package Imports
 # We will keep coming back to this cell to add "import" statements, and configure libraries as we need
 
-# In[ ]:
+# In[227]:
 
 
 import pandas as pd
@@ -44,6 +44,8 @@ plt.style.use("bmh")
 # 
 # [Dataset Source](https://archive.ics.uci.edu/ml/datasets/auto+mpg)
 
+# 
+
 # ### Exercise 1:  Load the dataset
 # You've had plenty of exercise in doing this. Load the dataset into a pandas dataframe.
 # 
@@ -51,10 +53,10 @@ plt.style.use("bmh")
 # 
 # Make sure you name the variable `auto_mpg_df` and that you use the appropriate pandas method to load the data.
 
-# In[ ]:
+# In[187]:
 
 
-
+auto_mpg_df = pd.read_table('./data/auto-mpg/auto-mpg.data', sep="\t")
 
 
 # <details>
@@ -76,10 +78,10 @@ plt.style.use("bmh")
 # #### 2.1: Display the <u>first</u> 5 rows of the dataframe
 # 
 
-# In[ ]:
+# In[188]:
 
 
-
+auto_mpg_df.head(5)
 
 
 # <details>
@@ -104,10 +106,10 @@ plt.style.use("bmh")
 
 # #### 2.2: Display the <u>last</u> 5 rows of the dataframe
 
-# In[ ]:
+# In[189]:
 
 
-
+auto_mpg_df.tail(5)
 
 
 # <details>
@@ -121,10 +123,10 @@ plt.style.use("bmh")
 # #### 2.3: Display <u>random</u> 5 rows of the dataframe
 # just viewing the first and last records may not be enough. We may want to see some random records to make sure we have the data we expect.
 
-# In[ ]:
+# In[190]:
 
 
-
+auto_mpg_df.sample(5)
 
 
 # <details>
@@ -142,10 +144,10 @@ plt.style.use("bmh")
 # 
 # #### 3.1: Display the number of rows and columns in the dataframe
 
-# In[ ]:
+# In[191]:
 
 
-
+auto_mpg_df.shape
 
 
 # <details>
@@ -159,10 +161,10 @@ plt.style.use("bmh")
 # #### 3.2: Display a summary about the dataframe
 # 
 
-# In[ ]:
+# In[192]:
 
 
-
+auto_mpg_df.info()
 
 
 # 
@@ -176,10 +178,10 @@ plt.style.use("bmh")
 
 # ### 3.3: Display the statistics for the dataframe
 
-# In[ ]:
+# In[193]:
 
 
-
+auto_mpg_df.describe()
 
 
 # <details>
@@ -205,10 +207,10 @@ plt.style.use("bmh")
 # 
 # </details>
 
-# In[ ]:
+# In[194]:
 
 
-
+auto_mpg_df.duplicated().sum()
 
 
 # 
@@ -223,10 +225,11 @@ plt.style.use("bmh")
 # #### 4.2: Show the duplicate records
 # using the results of the duplicated() method as a predicate to filter the dataframe, displaying the duplicate records. 
 
-# In[ ]:
+# In[195]:
 
 
-
+auto_mpg_df_dup = auto_mpg_df[auto_mpg_df.duplicated()]
+auto_mpg_df_dup
 
 
 # 
@@ -251,10 +254,10 @@ plt.style.use("bmh")
 #   - You can specify a subset of columns to check for duplicates by passing a list of column names to the `subset` parameter.
 # </details>
 
-# In[ ]:
+# In[196]:
 
 
-
+auto_mpg_df.duplicated(subset=['mpg', 'cylinders', 'acceleration', 'origin']).sum()
 
 
 # 
@@ -280,10 +283,10 @@ plt.style.use("bmh")
 #   - Make sure you either save the results of the method to a new variable, or use the `inplace` parameter to update the dataframe in place.
 # </details>
 
-# In[ ]:
+# In[197]:
 
 
-
+auto_mpg_df.drop_duplicates(inplace=True)
 
 
 # 
@@ -298,10 +301,10 @@ plt.style.use("bmh")
 # #### 5.2: Confirm that the duplicate records were removed
 # Check the number of records in the dataframe to confirm that the duplicates were removed.
 
-# In[ ]:
+# In[198]:
 
 
-
+print(f"Duplicated row sum: {auto_mpg_df.duplicated().sum()}, Shape: {auto_mpg_df.shape}")
 
 
 # <details>
@@ -315,13 +318,13 @@ plt.style.use("bmh")
 # ### Exercise 6: Data Cleaning: Checking for Missing Values
 # #### 6.1: Use `info()` to check for missing values
 
-# In[ ]:
+# In[199]:
 
 
-
+auto_mpg_df.info()
 
 How many and what are the missing records? ANSWER HERE
-
+There are 15 missing records, the records are in the mpg and horsepower
 # #### 6.2: Use `isna()` to check for missing values
 # 
 # <details>
@@ -333,10 +336,10 @@ How many and what are the missing records? ANSWER HERE
 # 
 # </details>
 
-# In[ ]:
+# In[200]:
 
 
-
+auto_mpg_df.isna().sum()
 
 
 # <details>
@@ -357,10 +360,10 @@ How many and what are the missing records? ANSWER HERE
 # 
 # </details>
 
-# In[ ]:
+# In[201]:
 
 
-
+auto_mpg_df.isnull().sum()
 
 
 # <details>
@@ -373,7 +376,7 @@ How many and what are the missing records? ANSWER HERE
 
 # #### What's the difference between `isna()` and `isnull()`? what's your source?
 ANSWER HERE
-
+They are functionally the same, isnull() is an alias for  isna(). My source is medium.com on a article with the title "is there any distinction between isnull() and isna() method of pandas DattaFrame?"
 # ### Exercise 7: Data Cleaning: Dropping Missing Values
 # 
 # #### 7.1: Drop the missing values of the `mpg` column
@@ -391,10 +394,10 @@ ANSWER HERE
 # 
 # </details>
 
-# In[ ]:
+# In[203]:
 
 
-
+auto_mpg_df.dropna(subset=['mpg'], inplace=True)
 
 
 # <details>
@@ -410,10 +413,10 @@ ANSWER HERE
 
 # #### 7.2: Confirm that the missing values in `mpg` were removed
 
-# In[ ]:
+# In[204]:
 
 
-
+auto_mpg_df.isna().sum()
 
 
 # <details>
@@ -441,10 +444,10 @@ ANSWER HERE
 # </details>
 # 
 
-# In[ ]:
+# In[205]:
 
 
-
+auto_mpg_df['horsepower'].hist(bins=40)
 
 
 # <details>
@@ -486,10 +489,16 @@ ANSWER HERE
 #   - You'll need to use the scipy library to calculate the trimmed mean.
 # </details>
 
-# In[ ]:
+# In[206]:
 
 
+horsepower_mean = auto_mpg_df['horsepower'].mean()
+horsepower_median = auto_mpg_df['horsepower'].median()
+horsepower_trimmed_mean = trim_mean(auto_mpg_df['horsepower'], 0.1)
 
+print(f"mean: {horsepower_mean}")
+print(f"median: {horsepower_median}")
+print(f"trimmed mean: {horsepower_trimmed_mean}")
 
 
 # <details>
@@ -506,7 +515,7 @@ ANSWER HERE
 
 # #### 8.3: Display the central tendency measures on the distribution plot
 
-# In[ ]:
+# In[207]:
 
 
 fig, ax = plt.subplots(figsize = (8,4))
@@ -518,7 +527,8 @@ ax.axvline(horsepower_mean, alpha = 0.8, linestyle = ":")
 ax.axvline(horsepower_median, alpha = 0.8, linestyle = ":")
 ax.axvline(horsepower_trimmed_mean, alpha = 0.8, linestyle = ":")
 
-# ax.set_yticklabels([])
+ax.set_ylim(0, .011)
+ax.set_yticklabels([])
 ax.set_ylabel("")
 
 ax.text(horsepower_mean-.1, .01, "Mean", size = 10, alpha = 0.8)
@@ -534,10 +544,10 @@ plt.show()
 
 # #### 8.4: Replace the missing values in the `horsepower` column with the median value
 
-# In[ ]:
+# In[208]:
 
 
-
+auto_mpg_df.fillna(value={'horsepower': horsepower_median}, inplace=True)
 
 
 # <details>
@@ -550,10 +560,10 @@ plt.show()
 
 # #### 8.5: Confirm that the missing values in `horsepower` were replaced
 
-# In[ ]:
+# In[209]:
 
 
-
+auto_mpg_df.isna().sum()
 
 
 # <details>
@@ -580,10 +590,12 @@ plt.show()
 
 # #### 9.1: Display the distribution of the values in the `displacement` column using a box plot
 
-# In[ ]:
+# In[210]:
 
 
-
+auto_mpg_df['displacement'].plot(kind="box")
+plt.show()
+auto_mpg_df['displacement'].describe()
 
 
 # <details>
@@ -601,10 +613,18 @@ plt.show()
 #   * Lower bound = 25th percentile - 1.5 * IQR
 #   * Upper bound = 75th percentile + 1.5 * IQR
 
-# In[ ]:
+# In[211]:
 
 
+q1 = auto_mpg_df['displacement'].quantile(0.25)
+q3 = auto_mpg_df['displacement'].quantile(0.75)
+iqr = q3 - q1
+upper_bound = q3 + (1.5 * iqr)
+lower_bound = q1 - (1.5 * iqr)
 
+print(f"q3: {q3}, q1 {q1}, iqr: {iqr}")
+print(f" lower limit: {lower_bound}")
+print(f" upper limit: {upper_bound}")
 
 
 # <details>
@@ -633,10 +653,11 @@ plt.show()
 #   - You can use the `|` operator to combine multiple conditions in a Pandas filter.
 # </details>
 
-# In[ ]:
+# In[212]:
 
 
-
+outliers = auto_mpg_df[(auto_mpg_df['displacement'] > upper_bound) | (auto_mpg_df['displacement'] < lower_bound)]
+outliers
 
 
 # <details>
@@ -654,19 +675,21 @@ plt.show()
 # * Calculate the z-score for each data point in the `displacement` column.
 #   * z-score = (x - mean) / standard deviation
 
-# In[ ]:
+# In[213]:
 
 
-displacement_mean = 
-displacement_std = 
+displacement_mean = auto_mpg_df['displacement'].mean()
+displacement_std = auto_mpg_df['displacement'].std()
+x = auto_mpg_df['horsepower']
 
 print(f"Mean: {displacement_mean}, Std: {displacement_std}")
 
 
-# In[ ]:
+# In[214]:
 
 
-z_scores = 
+z_scores = (x - displacement_mean)/displacement_std
+print(f"z-scores \n {z_scores}")
 
 
 # <details>
@@ -682,10 +705,11 @@ z_scores =
 
 # #### 9.5: Using Pandas filtering, show records that are outliers in the `displacement` column using the z-score method
 
-# In[ ]:
+# In[216]:
 
 
-
+z_outliers = auto_mpg_df[(z_scores < -3) | (z_scores > 3)]
+z_outliers
 
 
 # <details>
@@ -701,10 +725,12 @@ z_scores =
 # #### 9.6: Using Pandas filtering, show records that are outliers in the `displacement` column using the percentile method
 # we'll use a 1% threshold for this exercise.
 
-# In[ ]:
+# In[217]:
 
 
-
+lower_percent = auto_mpg_df['displacement'].quantile(0.01)
+upper_percent = auto_mpg_df['displacement'].quantile(0.99)
+auto_mpg_df[(auto_mpg_df['displacement'] > upper_percent) | (auto_mpg_df['displacement'] < lower_percent)]
 
 
 # <details>
@@ -721,10 +747,11 @@ z_scores =
 
 # #### 9.7: Display the distribution of the values in the `displacement` column using a histogram
 
-# In[ ]:
+# In[218]:
 
 
-
+auto_mpg_df['displacement'].hist(bins=40)
+plt.show
 
 
 # <details>
@@ -738,8 +765,18 @@ z_scores =
 
 # #### 9.8: On the historgram, display the upper and lower bounds based on the IQR method
 
-# In[ ]:
+# In[219]:
 
+
+fig, ax = plt.subplots(figsize = (8,4))
+
+auto_mpg_df['displacement'].plot(kind="hist", bins=40)
+
+ax.axvline(upper_bound, linestyle = "--")
+ax.axvline(lower_bound, linestyle = "--")
+
+ax.text(upper_bound-.1, .01, "Upper Bound", size = 10)
+ax.text(lower_bound-.4, .0075, "Lower Bound", size = 10)
 
 
 
@@ -765,10 +802,10 @@ z_scores =
 # 
 # * Don't do this in place, create a new dataframe.
 
-# In[ ]:
+# In[221]:
 
 
-
+without_outliers = auto_mpg_df.drop(outliers, axis=1)
 
 
 # <details>
@@ -792,7 +829,7 @@ z_scores =
 # #### 9.10: Show the shape of the original dataframe and the new dataframe to show that the outliers were dropped
 # 
 
-# In[ ]:
+# In[226]:
 
 
 display(auto_mpg_df.shape)
@@ -812,15 +849,15 @@ display(without_outliers.shape)
 # * Numerical-Discrete
 # * Categorical-Ordinal
 # * Categorical-nominal
-1. mpg:           
-2. cylinders:     
-3. displacement:  
-4. horsepower:    
-5. weight:        
-6. acceleration:  
-7. model year:    
-8. origin:        
-9. car name:      
+1. mpg: Numerical-continuous           
+2. cylinders: Numerical-discrete 
+3. displacement: Numerical-continuous
+4. horsepower: Numerical-continuous
+5. weight: Nuerical-continuous        
+6. acceleration: Numerical-continuous  
+7. model year: Numerical-discrete    
+8. origin: Categorical-Nominal       
+9. car name: Categorical-Nominal     
 # #### 10.2: Show all the possible values for the `origin` column
 # 
 # <details>
@@ -829,10 +866,10 @@ display(without_outliers.shape)
 #   - The `value_counts()` method can be used to show the unique values in a column.
 # </details>
 
-# In[ ]:
+# In[225]:
 
 
-
+auto_mpg_df['origin'].value_counts()
 
 
 # <details>
@@ -844,15 +881,24 @@ display(without_outliers.shape)
 # </details>
 
 # **What do the values in the `origin` column represent?**
-
+The values most likely represent the country of origin for each car, it could
+save more space, reducing error potential in the already-large datset. If each country's
+name was spelled out completely, it would take up much more space.
 # #### **BONUS**: show a scatter plot of the `horsepower` column vs the `weight` column
+
+# In[230]:
+
+
+from pandas.plotting import scatter_matrix
+scatter_matrix(auto_mpg_df[['horsepower', 'weight']], diagonal = 'none')
+
 
 # ## Wrap up
 # Remember to update the self reflection and self evaluations on the `README` file.
 
 # Make sure you run the following cell; this converts this Jupyter notebook to a Python script. and will make the process of reviewing your code on GitHub easier
 
-# In[ ]:
+# In[2]:
 
 
 # 🦉: The following command converts this Jupyter notebook to a Python script.
