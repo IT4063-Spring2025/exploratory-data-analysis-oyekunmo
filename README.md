@@ -46,21 +46,18 @@ IT4063C Data Technologies Analytics by [Yahya Gilany](https://yahyagilany.io). i
 # If I were to do this assignment again, I would: (repeat as needed)
 - . I would fix the procedural mistakes I made before, to save myself much more time.
 
-. I would have tried to figure out how I could segment the dataframes based on data types earlier so that the rest of the assignment went smoother.
-💯 Self Grade: For this assignment, based on my work and my reflections I should get [20] out of 20.
+# 💯 Self Grade: For this assignment, based on my work and my reflections I should get [20] out of 20.
 
-📚 References and Citations
-I used the following links, books, and other resources in my work: (repeat as needed)
+# 📚 References and Citations
+# I used the following links, books, and other resources in my work: (repeat as needed)
 
-. https://github.com/IT4063C-Fall22/Sandbox/blob/eda/sandbox.ipynb
-. https://www.youtube.com/watch?v=o5nRM5DlRps&t=2s
-. https://www.youtube.com/watch?v=BqCnNIlU4CI
-. https://pandas.pydata.org/docs/user_guide/missing_data.html#missing-data
-. https://learning.oreilly.com/library/view/practical-statistics-for/9781492072935/ch01.html#idm45782050342856
-. https://www.w3schools.com/python/pandas/ref_df_duplicated.asp
-. https://www.w3schools.com/python/pandas/trypython.asp?filename=demo_ref_df_duplicated
-. https://www.sharpsightlabs.com/blog/pandas-fillna/#example-2
-. https://pandas.pydata.org/docs/reference/api/pandas.to_numeric.html
-I received help from the following people: (repeat as needed)
+- . https://github.com/IT4063C-Fall22/Sandbox/blob/eda/sandbox.ipynb
+- . https://www.youtube.com/watch?v=o5nRM5DlRps&t=2s
+- . https://www.youtube.com/watch?v=BqCnNIlU4CI
+- . https://pandas.pydata.org/docs/user_guide/missing_data.html#missing-data
+- . https://learning.oreilly.com/library/view/practical-statistics-for/9781492072935/ch01.html#idm45782050342856
+- . https://www.w3schools.com/python/pandas/ref_df_duplicated.asp
+- . https://www.w3schools.com/python/pandas/trypython.asp?filename=demo_ref_df_duplicated
+- . https://www.sharpsightlabs.com/blog/pandas-fillna/#example-2
 
-. Adib Zaman (Instructor)
+- . Adib Zaman (Instructor)
