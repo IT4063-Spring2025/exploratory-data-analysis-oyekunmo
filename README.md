@@ -28,9 +28,11 @@ IT4063C Data Technologies Analytics by [Yahya Gilany](https://yahyagilany.io). i
 # I learned: (repeat as needed)
 
 - . How to load data with python libraries, how to clean up data for analysis, data visualization techniques, and analyzing the data visualization/statistics to come to certain conclusions regarding the data.
+
 # I struggled with: (repeat as needed)
 
-- . I struggled initially trying to separate the data between the numerical data and categorical data, which sometimes caused errors or unexpected results, but I eventually managed to figure it out.
+- . I struggled initially dropping certain values because I had made the recurring mistake of setting a new variable whenever auto_mpg_df was manipulated. I eventually fixed everything so that each manipulation of the data frame would update the data frame itself by using the inplace parameter, setting it to true.
+
 I need the instructor to help me with: (repeat as needed)
 
 . I needed just a little bit of help setting up the global environment with python 3.11
