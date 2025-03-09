@@ -43,7 +43,8 @@ IT4063C Data Technologies Analytics by [Yahya Gilany](https://yahyagilany.io). i
 # How often did you have to check the solution to the problem? How do you feel about that? 
 - . I often didn't check the solutions because some of the topics covered through this lab have crossover with the other lab from this week. 
 
-If I were to do this assignment again, I would: (repeat as needed)
+# If I were to do this assignment again, I would: (repeat as needed)
+- . I would fix the procedural mistakes I made before, to save myself much more time.
 
 . I would have tried to figure out how I could segment the dataframes based on data types earlier so that the rest of the assignment went smoother.
 💯 Self Grade: For this assignment, based on my work and my reflections I should get [20] out of 20.
